@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
 
   def index
-    @items = Item.all
+    @items = Item.visible.order_by_priority.all
   end
 
   def show
