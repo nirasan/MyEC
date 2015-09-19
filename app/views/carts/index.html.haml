@@ -1,25 +1,21 @@
-%h1 Listing carts
+%h1 ショッピングカート
 
-%table
+%table.table.table-bordered
   %thead
     %tr
-      %th User
-      %th Item
-      %th Amount
-      %th
-      %th
+      %th 画像
+      %th 商品名
+      %th 数量
       %th
 
   %tbody
     - @carts.each do |cart|
       %tr
-        %td= cart.user
-        %td= cart.item
-        %td= cart.amount
-        %td= link_to 'Show', cart
-        %td= link_to 'Edit', edit_cart_path(cart)
-        %td= link_to 'Destroy', cart, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= image_tag cart.item.image_url(:small)
+        %td= link_to cart.item.name, cart.item
+        %td
+          = simple_form_for(cart) do |f|
+            = f.input :amount
+            = f.button :submit, '数量変更'
+        %td= link_to '削除', cart, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
-
-= link_to 'New Cart', new_cart_path

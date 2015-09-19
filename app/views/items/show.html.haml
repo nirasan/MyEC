@@ -16,6 +16,13 @@
   %b Show priority:
   = @item.show_priority
 
-= link_to 'Edit', edit_item_path(@item)
-\|
+%p
+  %b Image:
+  = image_tag @item.image_url(:medium)
+
+= simple_form_for(Cart.new) do |f|
+  = f.input :item_id, as: :hidden, input_html: { value: @item.id }
+  = f.input :amount, input_html: { value: 1 }
+  = f.button :submit, 'カートに入れる'
+
 = link_to 'Back', items_path

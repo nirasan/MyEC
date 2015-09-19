@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-  resources :items
+  resources :items, only: [:index, :show]
   resources :carts, only: [:index, :create, :update, :destroy]
   namespace :admin do
     resources :items
