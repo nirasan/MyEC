@@ -1,0 +1,10 @@
+= simple_form_for(@cart) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :user
+    = f.association :item
+    = f.input :amount
+
+  .form-actions
+    = f.button :submit

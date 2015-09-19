@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   root "items#index"
-  resources :items
-  namespace :admin do
-    resources :items
-  end
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -14,4 +10,9 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
+  resources :items
+  resources :carts, only: [:index, :create, :update, :destroy]
+  namespace :admin do
+    resources :items
+  end
 end
