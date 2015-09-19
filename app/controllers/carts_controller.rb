@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_cart, only: [:edit, :update, :destroy]
+  before_action :set_cart, only: [:update, :destroy]
 
   def index
     @carts = current_user.carts
