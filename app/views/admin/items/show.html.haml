@@ -15,7 +15,10 @@
 %p
   %b Show priority:
   = @item.show_priority
+%p
+  %b Image:
+  = image_tag @item.image_url(:thumb)
 
-= link_to 'Edit', edit_item_path(@item)
+= link_to 'Edit', edit_admin_item_path(@item)
 \|
-= link_to 'Back', items_path
+= link_to 'Back', admin_items_path

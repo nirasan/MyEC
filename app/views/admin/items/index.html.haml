@@ -1,6 +1,6 @@
 %h1 Listing items
 
-%table
+%table.table.table-bordered
   %thead
     %tr
       %th Name
@@ -20,10 +20,10 @@
         %td= item.description
         %td= item.show_flag
         %td= item.show_priority
-        %td= link_to 'Show', item
-        %td= link_to 'Edit', edit_item_path(item)
-        %td= link_to 'Destroy', item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Show', admin_item_path(item)
+        %td= link_to 'Edit', edit_admin_item_path(item)
+        %td= link_to 'Destroy', admin_item_path(item), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Item', new_item_path
+= link_to 'New Item', new_admin_item_path

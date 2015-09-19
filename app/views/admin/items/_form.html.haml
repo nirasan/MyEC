@@ -1,4 +1,4 @@
-= simple_form_for(@item) do |f|
+= simple_form_for(["admin", @item]) do |f|
   = f.error_notification
 
   .form-inputs
@@ -7,6 +7,7 @@
     = f.input :description
     = f.input :show_flag
     = f.input :show_priority
+    = f.input :image, as: :image_preview, input_html: { preview_version: :thumb }
 
   .form-actions
     = f.button :submit
