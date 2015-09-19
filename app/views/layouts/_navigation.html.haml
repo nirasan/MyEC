@@ -7,7 +7,9 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to 'Home', root_path, class: 'navbar-brand'
+      = link_to 'さくらマーケット', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
-      %ul.nav.navbar-nav
+      %p.navbar-text.pull-left
         = render 'layouts/navigation_links'
+      %p.navbar-text.pull-right
+        = render 'layouts/navigation_right_links'

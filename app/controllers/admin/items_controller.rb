@@ -1,5 +1,6 @@
 class Admin::ItemsController < ApplicationController
   layout "admin"
+  before_filter :authenticate_admin!
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   # GET /items
