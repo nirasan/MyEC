@@ -1,0 +1,42 @@
+business_time:
+  beginning_of_workday: 9:00 am
+  end_of_workday: 5:00 pm
+  holidays:
+    - January 01, 2015
+    - January 12, 2015
+    - February 11, 2015
+    - March 21, 2015
+    - April 29, 2015
+    - May 03, 2015
+    - May 04, 2015
+    - May 05, 2015
+    - May 06, 2015
+    - July 20, 2015
+    - September 21, 2015
+    - September 23, 2015
+    - October 12, 2015
+    - November 03, 2015
+    - November 23, 2015
+    - December 23, 2015
+    - January 01, 2016
+    - January 11, 2016
+    - February 11, 2016
+    - March 21, 2016
+    - April 29, 2016
+    - May 03, 2016
+    - May 04, 2016
+    - May 05, 2016
+    - July 18, 2016
+    - August 11, 2016
+    - September 19, 2016
+    - September 22, 2016
+    - October 10, 2016
+    - November 03, 2016
+    - November 23, 2016
+    - December 23, 2016
+  work_week:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri

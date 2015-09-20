@@ -11,6 +11,10 @@ class Order < ActiveRecord::Base
   validates :postage_price, :presence => true
   validates :tax_price, :presence => true
   validates :total_price, :presence => true
+  validates :delivery_date, :presence => true
+  validates :delivery_timezone, :presence => true
+  validate :delivary_date_is_business_day
+  validate :delivary_timezone_is_valid
 
   after_create :create_order_items
   after_update :confirmed
@@ -76,5 +80,23 @@ class Order < ActiveRecord::Base
 
   def calc_total_price
     self.total_price = (price + cash_on_delivery_price + postage_price + tax_price).floor
+  end
+
+  def self.get_deliverable_dates(today = Date.today)
+    (0..30).map{|i| today + i.day }.select{|d| d.workday? }.slice(3, 12)
+  end
+
+  def delivary_date_is_business_day
+    if !Order.get_deliverable_dates.include?(delivery_date)
+      errors.add(:delivery_date, "配送可能な日付ではありません")
+    end
+  end
+
+  def delivary_timezone_is_valid
+    p delivery_timezone
+    p Settings.delivery_timezone
+    if !Settings.delivery_timezone.include?(delivery_timezone)
+      errors.add(:delivery_timezone, "配送可能な時間帯ではありません")
+    end
   end
 end

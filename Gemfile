@@ -24,6 +24,7 @@ gem 'rmagick'
 gem 'kaminari'
 gem 'default_value_for'
 gem 'config'
+gem 'business_time'
 
 group :development do
   gem 'better_errors'

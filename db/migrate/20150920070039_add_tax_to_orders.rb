@@ -5,6 +5,6 @@ class AddTaxToOrders < ActiveRecord::Migration
     add_column :orders, :postage_price, :decimal
     add_column :orders, :total_price, :decimal
     add_column :orders, :delivery_date, :date
-    add_column :orders, :delivery_timezone, :integer
+    add_column :orders, :delivery_timezone, :string
   end
 end

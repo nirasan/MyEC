@@ -6,6 +6,8 @@
     = f.input :address
     = f.input :zip_code
     = f.input :phone_number
+    = f.input :delivery_date, collection: Order.get_deliverable_dates, include_blank: false
+    = f.input :delivery_timezone, collection: Settings.delivery_timezone, include_blank: false
 
   .form-actions
     = f.button :submit

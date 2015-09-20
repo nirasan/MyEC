@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20150920070039) do
     t.decimal  "postage_price"
     t.decimal  "total_price"
     t.date     "delivery_date"
-    t.integer  "delivery_timezone"
+    t.string   "delivery_timezone"
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
