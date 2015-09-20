@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p この内容で購入しますか？
+
+%p
+  %b Name:
+  = @order.name
+%p
+  %b Address:
+  = @order.address
+%p
+  %b Zip code:
+  = @order.zip_code
+%p
+  %b Phone number:
+  = @order.phone_number
+%p
+  %b Price:
+  = @order.price
+
+= form_tag(confirmed_order_path, method: :post) do
+  = submit_tag '購入する'
+
+= link_to 'カートに戻る', carts_path

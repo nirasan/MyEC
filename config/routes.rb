@@ -12,6 +12,13 @@ Rails.application.routes.draw do
   }
   resources :items, only: [:index, :show]
   resources :carts, only: [:index, :create, :update, :destroy]
+  resources :orders do
+    member do
+      get :confirm
+      post :confirmed
+      get :result
+    end
+  end
   namespace :admin do
     resources :items
   end

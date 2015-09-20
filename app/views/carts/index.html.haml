@@ -19,3 +19,5 @@
             = f.button :submit, '数量変更'
         %td= link_to '削除', cart, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
+= link_to new_order_path do
+  %button.btn.btn-default 購入する
