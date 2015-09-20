@@ -18,10 +18,11 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.build(order_params)
+    @order.set_prices
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to confirm_order_path(@order), notice: 'Order was successfully created.' }
+        format.html { redirect_to confirm_order_path(@order) }
       else
         format.html { render :new }
       end
@@ -54,7 +55,7 @@ class OrdersController < ApplicationController
   def confirmed
     respond_to do |format|
       if @order.update(confirmed_flag: true)
-        format.html { redirect_to result_order_path(@order), notice: 'Order was successfully updated.' }
+        format.html { redirect_to result_order_path(@order) }
       else
         format.html { render :confirm }
       end
@@ -70,6 +71,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:name, :address, :zip_code, :phone_number, :price)
+      params.require(:order).permit(:name, :address, :zip_code, :phone_number)
     end
 end

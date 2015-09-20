@@ -1,24 +1,25 @@
-%p#notice= notice
+%h1 購入確認
 
-%p この内容で購入しますか？
+%p こちらの内容で購入してよろしいですか？
 
-%p
-  %b Name:
-  = @order.name
-%p
-  %b Address:
-  = @order.address
-%p
-  %b Zip code:
-  = @order.zip_code
-%p
-  %b Phone number:
-  = @order.phone_number
-%p
-  %b Price:
-  = @order.price
+= render 'orders/items_and_prices', user: current_user, order: @order
+
+%h2 配送先
+%table.table.table-bordered
+  %tr
+    %th 名前
+    %td= @order.name
+  %tr
+    %th 住所
+    %td= @order.address
+  %tr
+    %th 郵便番号
+    %td= @order.zip_code
+  %tr
+    %th 電話番号
+    %td= @order.phone_number
 
 = form_tag(confirmed_order_path, method: :post) do
-  = submit_tag '購入する'
+  %button.btn.btn-primary{type:"submit"} 購入する
 
 = link_to 'カートに戻る', carts_path

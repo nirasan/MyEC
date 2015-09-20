@@ -23,6 +23,7 @@ gem 'fog'
 gem 'rmagick'
 gem 'kaminari'
 gem 'default_value_for'
+gem 'config'
 
 group :development do
   gem 'better_errors'

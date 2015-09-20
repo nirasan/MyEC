@@ -1,5 +1,9 @@
-%h1 New order
+%h1 購入準備
 
+= render 'orders/items_and_prices', user: current_user, order: @order
+
+%h2 配送先
+%p 配送先情報を入力してください
 = render 'form'
 
 = link_to 'Back', orders_path

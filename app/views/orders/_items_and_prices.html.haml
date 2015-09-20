@@ -1,0 +1,32 @@
+%h2 購入する商品
+%table.table.table-bordered
+  %thead
+    %th 商品名
+    %th 単価
+    %th 個数
+    %th 合計金額
+  %tbody
+    - user.carts.each do |cart|
+      %tr
+        %td= cart.item.name
+        %td= number_to_currency(cart.item.price)
+        %td= "%d個" % cart.amount
+        %td= number_to_currency(cart.item.price * cart.amount)
+
+%h2 お支払金額
+%table.table.table-bordered
+  %tr
+    %th 購入商品小計
+    %td= number_to_currency(order.price)
+  %tr
+    %th 代引き手数料
+    %td= number_to_currency(order.cash_on_delivery_price)
+  %tr
+    %th 配送料
+    %td= number_to_currency(order.postage_price)
+  %tr
+    %th 消費税
+    %td= number_to_currency(order.tax_price)
+  %tr
+    %th お支払金額合計
+    %td= number_to_currency(order.total_price)
