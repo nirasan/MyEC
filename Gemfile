@@ -59,7 +59,7 @@ end
 group :production do
   gem 'unicorn'
   gem 'rails_12factor'
-  #gem 'pg'
+  gem 'pg'
 end
 
 group :test do
