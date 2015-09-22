@@ -1,0 +1,20 @@
+%h2 配送先
+%table.table.table-bordered
+  %tr
+    %th 名前
+    %td= order.name
+  %tr
+    %th 住所
+    %td= order.address
+  %tr
+    %th 郵便番号
+    %td= order.zip_code
+  %tr
+    %th 電話番号
+    %td= order.phone_number
+  %tr
+    %th 配送日
+    %td= order.delivery_date
+  %tr
+    %th 配送時間対
+    %td= order.delivery_timezone

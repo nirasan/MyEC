@@ -1,4 +1,4 @@
-%h2 購入する商品
+%h2 購入商品
 %table.table.table-bordered
   %thead
     %th 商品名
@@ -6,12 +6,12 @@
     %th 個数
     %th 合計金額
   %tbody
-    - user.carts.each do |cart|
+    - items.each do |item|
       %tr
-        %td= cart.item.name
-        %td= number_to_currency(cart.item.price)
-        %td= "%d個" % cart.amount
-        %td= number_to_currency(cart.item.price * cart.amount)
+        %td= item.item.name
+        %td= number_to_currency(item.item.price)
+        %td= "%d個" % item.amount
+        %td= number_to_currency(item.item.price * item.amount)
 
 %h2 お支払金額
 %table.table.table-bordered

@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_order, only: [:show, :edit, :update, :destroy, :confirm, :confirmed, :result]
+  before_action :set_order, only: [:show, :confirm, :confirmed, :result]
 
   def index
-    @orders = Order.all
+    @orders = current_user.orders.where(confirmed_flag: true)
   end
 
   def show
@@ -11,9 +11,6 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new_by_user(current_user)
-  end
-
-  def edit
   end
 
   def create
@@ -26,26 +23,6 @@ class OrdersController < ApplicationController
       else
         format.html { render :new }
       end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
-        format.json { render :show, status: :ok, location: @order }
-      else
-        format.html { render :edit }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def destroy
-    @order.destroy
-    respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -67,7 +44,7 @@ class OrdersController < ApplicationController
 
   private
     def set_order
-      @order = Order.find(params[:id])
+      @order = current_user.orders.find(params[:id])
     end
 
     def order_params

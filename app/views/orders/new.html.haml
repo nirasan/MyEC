@@ -1,6 +1,6 @@
 %h1 購入準備
 
-= render 'orders/items_and_prices', user: current_user, order: @order
+= render 'orders/items_and_prices', order: @order, items: current_user.carts
 
 %h2 配送先
 %p 配送先情報を入力してください

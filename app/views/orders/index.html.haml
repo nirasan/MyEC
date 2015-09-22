@@ -1,31 +1,17 @@
-%h1 Listing orders
+%h1 購入履歴
 
-%table
+%table.table.table-bordered
   %thead
     %tr
-      %th User
-      %th Name
-      %th Address
-      %th Zip code
-      %th Phone number
-      %th Price
-      %th
-      %th
+      %th 購入日時
+      %th 購入点数
+      %th 合計金額
       %th
 
   %tbody
     - @orders.each do |order|
       %tr
-        %td= order.user
-        %td= order.name
-        %td= order.address
-        %td= order.zip_code
-        %td= order.phone_number
-        %td= order.price
-        %td= link_to 'Show', order
-        %td= link_to 'Edit', edit_order_path(order)
-        %td= link_to 'Destroy', order, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Order', new_order_path
+        %td= order.updated_at
+        %td= order.order_items.size
+        %td= order.total_price
+        %td= link_to '詳細', order

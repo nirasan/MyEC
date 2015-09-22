@@ -2,28 +2,9 @@
 
 %p こちらの内容で購入してよろしいですか？
 
-= render 'orders/items_and_prices', user: current_user, order: @order
+= render 'orders/items_and_prices', items: @order.order_items, order: @order
 
-%h2 配送先
-%table.table.table-bordered
-  %tr
-    %th 名前
-    %td= @order.name
-  %tr
-    %th 住所
-    %td= @order.address
-  %tr
-    %th 郵便番号
-    %td= @order.zip_code
-  %tr
-    %th 電話番号
-    %td= @order.phone_number
-  %tr
-    %th 配送日
-    %td= @order.delivery_date
-  %tr
-    %th 配送時間対
-    %td= @order.delivery_timezone
+= render 'orders/postal_data', order: @order
 
 = form_tag(confirmed_order_path, method: :post) do
   %button.btn.btn-primary{type:"submit"} 購入する
