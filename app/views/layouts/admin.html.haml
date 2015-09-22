@@ -9,7 +9,9 @@
     = csrf_meta_tags
   %body
     %header
-      = render 'layouts/navigation'
+      = render 'layouts/admin/navigation'
     %main{:role => "main"}
-      = render 'layouts/messages'
-      = yield
+      .row
+        .col-md-offset-1.col-md-10
+          = render 'layouts/messages'
+          = yield

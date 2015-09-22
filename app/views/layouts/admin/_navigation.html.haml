@@ -1,0 +1,15 @@
+-# navigation styled for Bootstrap 3.0
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'さくらマーケット(管理者画面)', admin_items_path, class: 'navbar-brand'
+    .collapse.navbar-collapse
+      %p.navbar-text.pull-left
+        = render 'layouts/admin/navigation_links'
+      %p.navbar-text.pull-right
+        = render 'layouts/admin/navigation_right_links'

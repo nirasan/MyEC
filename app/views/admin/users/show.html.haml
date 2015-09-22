@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b メールアドレス:
+  = @user.email
+%p
+  %b 名前:
+  = @user.name
+%p
+  %b 住所:
+  = @user.address
+%p
+  %b 郵便番号:
+  = @user.zip_code
+%p
+  %b 電話番号:
+  = @user.phone_number
+%p
+  %b 登録日:
+  = @user.created_at
+%p
+  %b 画像:
+  = image_tag @user.image_url()
+
+= link_to '編集', edit_admin_user_path(@user)
+\|
+= link_to '戻る', admin_users_path

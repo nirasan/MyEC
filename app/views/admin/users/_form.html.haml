@@ -1,0 +1,13 @@
+= simple_form_for(["admin", @user]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :email
+    = f.input :name
+    = f.input :address
+    = f.input :zip_code
+    = f.input :phone_number
+    = f.input :image, as: :image_preview, input_html: { preview_version: :thumb }
+
+  .form-actions
+    = f.button :submit
