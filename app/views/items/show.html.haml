@@ -1,23 +1,16 @@
 %p#notice= notice
 
 %p
-  %b Name:
+  %b 商品名:
   = @item.name
 %p
-  %b Price:
-  = @item.price
+  %b 価格:
+  = number_to_currency(@item.price)
 %p
-  %b Description:
+  %b 商品説明:
   = @item.description
-%p
-  %b Show flag:
-  = @item.show_flag
-%p
-  %b Show priority:
-  = @item.show_priority
 
 %p
-  %b Image:
   = image_tag @item.image_url(:medium)
 
 = simple_form_for(Cart.new) do |f|
@@ -25,4 +18,4 @@
   = f.input :amount, input_html: { value: 1 }
   = f.button :submit, 'カートに入れる'
 
-= link_to 'Back', items_path
+= link_to '戻る', items_path
