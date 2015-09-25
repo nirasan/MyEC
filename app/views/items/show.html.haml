@@ -1,21 +1,26 @@
-%p#notice= notice
-
-%p
-  %b 商品名:
-  = @item.name
-%p
-  %b 価格:
-  = number_to_currency(@item.price)
-%p
-  %b 商品説明:
-  = @item.description
-
-%p
-  = image_tag @item.image_url(:medium)
-
-= simple_form_for(Cart.new) do |f|
-  = f.input :item_id, as: :hidden, input_html: { value: @item.id }
-  = f.input :amount, input_html: { value: 1 }
-  = f.button :submit, 'カートに入れる'
-
-= link_to '戻る', items_path
+.row
+  .col-md-4
+    = image_tag @item.image_url(:medium), class: 'pull-left item-image'
+  .col-md-4
+    %h2= @item.name
+    %p
+      %b 価格:
+      = number_to_currency(@item.price)
+    %p
+      %b 商品説明:
+      = @item.description
+  .col-md-4
+    .item-cart
+      %h4 カートに入れる
+      = simple_form_for(Cart.new) do |f|
+        = f.input :item_id, as: :hidden, input_html: { value: @item.id }
+        = f.input :amount, input_html: { value: 1 }
+        = f.button :submit, '入れる'
+    .item-cart-preview
+      %h4 カートの中身
+      %p
+        %b 合計点数:
+        = current_user.carts.size
+      %p
+        %b 合計金額:
+        = current_user.carts.map{|cart| cart.item.price * cart.amount}.sum

@@ -1,12 +1,19 @@
 %h1 購入確認
 
-%p こちらの内容で購入してよろしいですか？
+%p 購入してよろしいですか？
 
 = render 'orders/items_and_prices', items: @order.order_items, order: @order
 
 = render 'orders/postal_data', order: @order
 
-= form_tag(confirmed_order_path, method: :post) do
-  %button.btn.btn-primary{type:"submit"} 購入する
+.row
+  .col-md-offset-2.col-md-8
+    = form_tag(confirmed_order_path, method: :post) do
+      %button.btn.btn-primary.btn-lg.btn-block{type:"submit"} 購入する
 
-= link_to 'カートに戻る', carts_path
+%br
+
+.row
+  .col-md-offset-2.col-md-8
+    = link_to carts_path do
+      %button.btn.btn-warning.btn-lg.btn-block カートに戻る

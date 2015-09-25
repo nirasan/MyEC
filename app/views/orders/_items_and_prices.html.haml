@@ -1,5 +1,5 @@
 %h2 購入商品
-%table.table.table-bordered
+%table.table.table-hover
   %thead
     %th 商品名
     %th 単価
@@ -14,19 +14,24 @@
         %td= number_to_currency(item.item.price * item.amount)
 
 %h2 お支払金額
-%table.table.table-bordered
+%table.table.table-hover
   %tr
-    %th 購入商品小計
+    %th
+      .text-center 購入商品小計
     %td= number_to_currency(order.price)
   %tr
-    %th 代引き手数料
+    %th
+      .text-center 代引き手数料
     %td= number_to_currency(order.cash_on_delivery_price)
   %tr
-    %th 配送料
+    %th
+      .text-center 配送料
     %td= number_to_currency(order.postage_price)
   %tr
-    %th 消費税
+    %th
+      .text-center 消費税
     %td= number_to_currency(order.tax_price)
   %tr
-    %th お支払金額合計
+    %th
+      .text-center お支払金額合計
     %td= number_to_currency(order.total_price)

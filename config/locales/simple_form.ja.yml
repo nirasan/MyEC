@@ -20,6 +20,7 @@ ja:
         zip_code: 郵便番号
         phone_number: 電話番号
         image: 画像
+        amount: 数量
   enumerize:
     enum_column_name:
       yes: はい

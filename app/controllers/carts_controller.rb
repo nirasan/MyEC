@@ -11,7 +11,7 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       if @cart.save
-        format.html { redirect_to carts_path, notice: 'Cart was successfully created.' }
+        format.html { redirect_to carts_path, notice: "#{@cart.item.name}を#{@cart.amount}個カートに入れました" }
         format.json { render :show, status: :created, location: @cart }
       else
         format.html { render :new }
@@ -23,7 +23,7 @@ class CartsController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to carts_path, notice: 'Cart was successfully updated.' }
+        format.html { redirect_to carts_path, notice: "#{@cart.item.name}の数量を変更しました" }
         format.json { render :show, status: :ok, location: @cart }
       else
         format.html { render :edit }
@@ -35,7 +35,7 @@ class CartsController < ApplicationController
   def destroy
     @cart.destroy
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
+      format.html { redirect_to carts_url, notice: 'カートから商品を削除しました' }
       format.json { head :no_content }
     end
   end

@@ -1,6 +1,6 @@
 %h1 ショッピングカート
 
-%table.table.table-bordered
+%table.table.table-hover
   %thead
     %tr
       %th 画像
@@ -14,10 +14,12 @@
         %td= image_tag cart.item.image_url(:small)
         %td= link_to cart.item.name, cart.item
         %td
-          = simple_form_for(cart) do |f|
-            = f.input :amount
+          = simple_form_for(cart, html: {class:'form-inline'}) do |f|
+            = f.input_field :amount, class: 'form-control'
             = f.button :submit, '数量変更'
-        %td= link_to '削除', cart, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to '削除', cart, :method => :delete, :data => { :confirm => '削除しますか？' }
 
-= link_to new_order_path do
-  %button.btn.btn-default 購入する
+.row
+  .col-md-offset-2.col-md-8
+    = link_to new_order_path do
+      %button.btn.btn-default.btn-lg.btn-block 購入する

@@ -4,6 +4,6 @@
   - @items.each do |item|
     .col-md-4
       .panel
-        .panel-body
+        .panel-body.fixed-panel
           = image_tag item.image_url(:medium)
           = link_to item.name, item

@@ -6,4 +6,9 @@
 %p 配送先情報を入力してください
 = render 'form'
 
-= link_to 'Back', orders_path
+%br
+
+.row
+  .col-md-offset-2.col-md-8
+    = link_to orders_path do
+      %button.btn.btn-warning.btn-lg.btn-block 戻る

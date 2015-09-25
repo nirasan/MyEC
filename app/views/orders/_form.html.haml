@@ -10,4 +10,6 @@
     = f.input :delivery_timezone, collection: Settings.delivery_timezone, include_blank: false
 
   .form-actions
-    = f.button :submit
+    .row
+      .col-md-offset-2.col-md-8
+        = f.button :submit, class: 'btn btn-primary btn-lg btn-block'
