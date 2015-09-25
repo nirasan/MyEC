@@ -1,0 +1,13 @@
+%h2 アカウント
+
+.row
+  .col-md-4
+    .clearfix.user-thumb
+      %span
+        = image_tag current_user.image.url(:thumb), class: 'pull-left'
+      %span= current_user.name
+    %div= link_to '購入履歴を見る', carts_path
+    %div= link_to 'プロフィールを編集する', profile_users_path
+    %div= link_to '配送先を編集する', delivery_users_path
+    %div= link_to 'ログイン情報を編集する', edit_user_registration_path
+  .col-md-8

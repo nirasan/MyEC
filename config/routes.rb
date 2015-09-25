@@ -10,6 +10,12 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
+  resource :users, only: [:show] do
+    get :profile
+    post :update_profile
+    get :delivery
+    post :update_delivery
+  end
   resources :items, only: [:index, :show]
   resources :carts, only: [:index, :create, :update, :destroy]
   resources :orders, only: [:index, :show, :new, :create] do
