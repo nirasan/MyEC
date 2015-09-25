@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :confirm, :confirmed, :result]
 
   def index
-    @orders = current_user.orders.where(confirmed_flag: true)
+    @orders = current_user.orders.where(confirmed_flag: true).page(params[:page])
   end
 
   def show

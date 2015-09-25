@@ -15,3 +15,5 @@
         %td= order.order_items.size
         %td= order.total_price
         %td= link_to '詳細', order
+
+= paginate @orders

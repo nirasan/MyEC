@@ -7,3 +7,5 @@
         .panel-body.fixed-panel
           = image_tag item.image_url(:medium)
           = link_to item.name, item
+
+= paginate @items

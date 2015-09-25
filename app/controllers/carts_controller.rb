@@ -3,7 +3,7 @@ class CartsController < ApplicationController
   before_action :set_cart, only: [:update, :destroy]
 
   def index
-    @carts = current_user.carts
+    @carts = current_user.carts.page(params[:page])
   end
 
   def create

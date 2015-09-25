@@ -24,6 +24,8 @@
         %td= link_to '編集', edit_admin_item_path(item)
         %td= link_to '削除', admin_item_path(item), :method => :delete, :data => { :confirm => '削除しますか？' }
 
+= paginate @items
+
 %br
 
 = link_to '登録', new_admin_item_path
