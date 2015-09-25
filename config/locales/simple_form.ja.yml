@@ -1,0 +1,26 @@
+ja:
+  simple_form:
+    "yes": 'はい'
+    "no": 'いいえ'
+    required:
+      text: '必須'
+      mark: '*'
+    error_notification:
+      default_message: "問題が発生しました:"
+    # Examples
+    labels:
+      defaults:
+        password: 'パスワード'
+        password_confirmation: 'パスワード（確認用）'
+        email: 'メールアドレス'
+        name: '名前'
+        remember_me: '入力内容を保存する'
+        file: ファイル
+        address: 住所
+        zip_code: 郵便番号
+        phone_number: 電話番号
+        image: 画像
+  enumerize:
+    enum_column_name:
+      yes: はい
+      no: いいえ

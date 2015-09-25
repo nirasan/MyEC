@@ -1,0 +1,16 @@
+%h2
+  プロフィールの編集
+= simple_form_for(current_user, url: update_profile_users_url, html: { method: :post }) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name
+    %b 画像
+    .clearfix
+    = image_tag current_user.image.url, class: 'user-thumb-preview pull-left'
+    .clearfix
+    %span.btn.btn-success.fileinput-button
+      新しい画像を選択してください
+      = f.file_field :image
+    .clearfix
+  .form-actions
+    = f.button :submit, "更新"

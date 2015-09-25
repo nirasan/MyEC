@@ -4,7 +4,7 @@
   .col-md-4
     .clearfix.user-thumb
       %span
-        = image_tag current_user.image.url(:thumb), class: 'pull-left'
+        = image_tag current_user.image.url(:thumb), class: 'img-circle pull-left'
       %span= current_user.name
     %div= link_to '購入履歴を見る', carts_path
     %div= link_to 'プロフィールを編集する', profile_users_path

@@ -1,0 +1,10 @@
+%h2
+  配送先を編集する
+= simple_form_for(current_user, url: update_delivery_users_path, html: { method: :post }) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :zip_code
+    = f.input :address
+    = f.input :phone_number
+  .form-actions
+    = f.button :submit, "更新"
