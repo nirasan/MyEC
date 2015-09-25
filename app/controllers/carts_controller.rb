@@ -12,10 +12,8 @@ class CartsController < ApplicationController
     respond_to do |format|
       if @cart.save
         format.html { redirect_to carts_path, notice: "#{@cart.item.name}を#{@cart.amount}個カートに入れました" }
-        format.json { render :show, status: :created, location: @cart }
       else
-        format.html { render :new }
-        format.json { render json: @cart.errors, status: :unprocessable_entity }
+        format.html { redirect_to item_path(@cart.item), alert: "カートに入れられませんでした" }
       end
     end
   end
@@ -26,7 +24,7 @@ class CartsController < ApplicationController
         format.html { redirect_to carts_path, notice: "#{@cart.item.name}の数量を変更しました" }
         format.json { render :show, status: :ok, location: @cart }
       else
-        format.html { render :edit }
+        format.html { redirect_to carts_path, alert: "#{@cart.item.name}の数量変更に失敗しました" }
         format.json { render json: @cart.errors, status: :unprocessable_entity }
       end
     end
