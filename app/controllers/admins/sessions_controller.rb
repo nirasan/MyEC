@@ -1,5 +1,6 @@
 class Admins::SessionsController < Devise::SessionsController
 # before_filter :configure_sign_in_params, only: [:create]
+  layout 'admin'
 
   # GET /resource/sign_in
   # def new
@@ -22,4 +23,8 @@ class Admins::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.for(:sign_in) << :attribute
   # end
+
+  def after_sign_out_path_for(resource)
+    admin_items_path
+  end
 end
