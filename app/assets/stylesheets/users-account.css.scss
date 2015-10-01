@@ -1,0 +1,32 @@
+
+.ec-users-account {
+  &__thumbnail,
+  &__name {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 20px;
+  }
+
+  &__thumbnail-preview {
+    width: 300px;
+    margin-top: 4px;
+  }
+
+  &__fileinput-button {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-bottom: 8px;
+    width: 220px;
+    height: 32px;
+    input {
+      opacity: 0;
+      filter: alpha(opacity=0);
+      transform: translate(-300px, 0) scale(4);
+      direction: ltr;
+      cursor: pointer;
+    }
+  }
+}

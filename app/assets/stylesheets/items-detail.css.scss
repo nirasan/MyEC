@@ -1,0 +1,40 @@
+
+.ec-items-detail {
+  &__image {
+    margin: 20px auto;
+  }
+
+  &__name {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    margin-top: 20px;
+    margin-left: -10px;
+  }
+
+  &__price {
+    color: red;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__description {
+    color: dimgray;
+    margin: 4px;
+    line-height: 25px;
+  }
+
+  &__cart {
+    margin: 20px auto auto;
+    padding: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #d0d0d0;
+    border-radius: 10px;
+  }
+
+  &__cart-preview {
+    @extend .ec-items-detail__cart;
+    margin: 20px auto;
+  }
+}

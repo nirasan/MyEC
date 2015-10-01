@@ -11,6 +11,5 @@
  * file per style scope.
  *
  *= require_self
- *= require framework_and_overrides
- *= require myec
+ *= require_tree .
  */

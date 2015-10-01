@@ -1,24 +1,24 @@
-.row
+.row.ec-items-detail
+  .col-md-8
+    .row
+      .col-md-6
+        = image_tag @item.image_url(:medium), class: 'pull-left ec-items-detail__image'
+      .col-md-6
+        .ec-items-detail__name= @item.name
+        .ec-items-detail__price= number_to_currency(@item.price)
+    %h4 商品説明
+    .ec-items-detail__description= @item.description
   .col-md-4
-    = image_tag @item.image_url(:medium), class: 'pull-left item-image'
-  .col-md-4
-    %h2= @item.name
-    %p
-      %b 価格:
-      = number_to_currency(@item.price)
-    %p
-      %b 商品説明:
-      = @item.description
-  .col-md-4
-    .item-cart
-      %h4 カートに入れる
+    .ec-items-detail__cart
       = simple_form_for(Cart.new) do |f|
         = f.input :item_id, as: :hidden, input_html: { value: @item.id }
         = f.input :amount, input_html: { value: 1 }
-        = f.button :submit, '入れる'
+        %button.btn.btn-primary
+          %i.fa.fa-shopping-cart
+          ショッピングカートに入れる
     - if user_signed_in?
-      .item-cart-preview
-        %h4 カートの中身
+      .ec-items-detail__cart-preview
+        %h4 ショッピングカートの中身
         %p
           %b 合計点数:
           = current_user.carts.size

@@ -5,12 +5,12 @@
   .form-inputs
     = f.input :name
     %b 画像
-    .clearfix
-    = image_tag current_user.image.url, class: 'user-thumb-preview pull-left'
-    .clearfix
-    %span.btn.btn-success.fileinput-button
-      新しい画像を選択してください
-      = f.file_field :image
+    .ec-users-account
+      .clearfix
+        = image_tag current_user.image.url, class: 'ec-users-account__thumbnail-preview pull-left'
+      %span.btn.btn-success.ec-users-account__fileinput-button
+        新しい画像を選択してください
+        = f.file_field :image
     .clearfix
   .form-actions
     = f.button :submit, "更新"

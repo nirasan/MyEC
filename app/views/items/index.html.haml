@@ -1,10 +1,10 @@
 %h1 商品一覧
 
-.row
+.row.ec-items-index
   - @items.each do |item|
     .col-md-4
       .panel
-        .panel-body.fixed-panel
+        .panel-body.ec-items-index__fixed-panel-body
           = image_tag item.image_url(:medium)
           = link_to item.name, item
 

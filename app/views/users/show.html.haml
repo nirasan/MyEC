@@ -2,10 +2,10 @@
 
 .row
   .col-md-4
-    .clearfix.user-thumb
-      %span
+    .clearfix.ec-users-account
+      %span.ec-users-account__thumbnail
         = image_tag current_user.image.url(:thumb), class: 'img-circle pull-left'
-      %span= current_user.name
+      %span.ec-users-account__name= current_user.name
     %div= link_to '購入履歴を見る', orders_path
     %div= link_to 'プロフィールを編集する', profile_users_path
     %div= link_to '配送先を編集する', delivery_users_path
