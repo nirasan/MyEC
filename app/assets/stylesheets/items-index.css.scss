@@ -1,8 +1,8 @@
 
 .ec-items-index {
-  &__fixed-panel-body {
-    min-height: 280px;
-    max-height: 280px;
-    overflow-y: scroll;
+  &__price {
+    color: red;
+    font-size: 20px;
+    font-weight: 600;
   }
 }

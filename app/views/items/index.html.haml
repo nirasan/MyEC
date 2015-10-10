@@ -1,11 +1,15 @@
-%h1 商品一覧
 
 .row.ec-items-index
-  - @items.each do |item|
-    .col-md-4
+  - @items.each.with_index(1) do |item, index|
+    .col-md-4.col-sm-4
       .panel
-        .panel-body.ec-items-index__fixed-panel-body
-          = image_tag item.image_url(:medium)
+        .panel-body
+          = link_to item do
+            = image_tag item.image_url(:small)
           = link_to item.name, item
+          .pull-right.ec-items-index__price
+            = number_to_currency(item.price)
+    - if index % 3 == 0
+      .clearfix
 
 = paginate @items
