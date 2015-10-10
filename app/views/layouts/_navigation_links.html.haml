@@ -2,4 +2,4 @@
   = link_to carts_path, class: 'navbar-link' do
     ショッピングカート
     %span.badge
-      = current_user.carts.size
+      = current_or_guest_user.carts.size

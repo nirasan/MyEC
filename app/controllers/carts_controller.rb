@@ -1,13 +1,14 @@
 class CartsController < ApplicationController
+  before_filter :create_guest_unless_signed_in
   before_filter :authenticate_user!
   before_action :set_cart, only: [:update, :destroy]
 
   def index
-    @carts = current_user.carts.page(params[:page])
+    @carts = current_or_guest_user.carts.page(params[:page])
   end
 
   def create
-    @cart = current_user.carts.build(cart_params)
+    @cart = current_or_guest_user.carts.build(cart_params)
 
     respond_to do |format|
       if @cart.save
@@ -40,10 +41,16 @@ class CartsController < ApplicationController
 
   private
     def set_cart
-      @cart = current_user.carts.find(params[:id])
+      @cart = current_or_guest_user.carts.find(params[:id])
     end
 
     def cart_params
       params.require(:cart).permit(:item_id, :amount)
+    end
+
+    def create_guest_unless_signed_in
+      unless current_user || guest_user?
+        create_guest_user
+      end
     end
 end

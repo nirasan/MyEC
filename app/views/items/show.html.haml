@@ -21,7 +21,7 @@
         %h4 ショッピングカートの中身
         %p
           %b 合計点数:
-          = current_user.carts.size
+          = current_or_guest_user.carts.size
         %p
           %b 合計金額:
-          = number_to_currency(current_user.carts.map{|cart| cart.item.price * cart.amount}.sum)
+          = number_to_currency(current_or_guest_user.carts.map{|cart| cart.item.price * cart.amount}.sum)

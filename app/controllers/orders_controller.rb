@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_no_user_or_guest!
   before_action :set_order, only: [:show, :confirm, :confirmed, :result]
 
   def index

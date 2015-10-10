@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_no_user_or_guest!
 
   def show
   end

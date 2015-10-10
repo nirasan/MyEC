@@ -1,6 +1,10 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_filter :configure_permitted_parameters, only: [:create, :update]
 
+  before_action :authenticate_no_user_or_guest!, except: [:new, :create]
+  skip_before_filter :require_no_authentication, only:   [:new, :create], if:     :guest_user?
+  before_action      :require_no_authentication, only:   [:new, :create], unless: :guest_user?
+
   # GET /resource/sign_up
   # def new
   #   super
