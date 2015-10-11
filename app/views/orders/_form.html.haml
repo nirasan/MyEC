@@ -2,12 +2,12 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.input :address
-    = f.input :zip_code
-    = f.input :phone_number
-    = f.input :delivery_date, collection: Order.get_deliverable_dates, include_blank: false
-    = f.input :delivery_timezone, collection: Settings.delivery_timezone, include_blank: false
+    = f.input :name, hint: '例）山田 太郎'
+    = f.input :zip_code, hint: '例）101-0001', input_html: {style:"width:240px;"}
+    = f.input :address, hint: '例）東京都千代田区１丁目１番地'
+    = f.input :phone_number, hint: '例）03-0001-0001'
+    = f.input :delivery_date, collection: Order.get_deliverable_dates, include_blank: false, hint: '配送を希望する日を選択してください'
+    = f.input :delivery_timezone, collection: Settings.delivery_timezone, include_blank: false, hint: '配送を希望する時間帯を選択してください'
 
   .form-actions
     .row

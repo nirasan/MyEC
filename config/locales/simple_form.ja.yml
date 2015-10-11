@@ -21,6 +21,8 @@ ja:
         phone_number: 電話番号
         image: 画像
         amount: 数量
+        delivery_date: 配送日指定
+        delivery_timezone: 配送時間帯指定
   enumerize:
     enum_column_name:
       yes: はい

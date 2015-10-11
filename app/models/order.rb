@@ -4,8 +4,8 @@ class Order < ActiveRecord::Base
 
   validates :name, :presence => true
   validates :address, :presence => true
-  validates :zip_code, :presence => true
-  validates :phone_number, :presence => true
+  validates :zip_code, :presence => true, :format => { with: /\A\d{3}\-?\d{4}\z/ }
+  validates :phone_number, :presence => true, :format => { with: /\A\d{2,4}\-?\d{2,4}\-?\d{4}\z/ }
   validates :price, :presence => true
   validates :cash_on_delivery_price, :presence => true
   validates :postage_price, :presence => true

@@ -1,14 +1,11 @@
-%h1 購入準備
-
-= render 'orders/items_and_prices', order: @order, items: current_user.carts
-
-%h2 配送先
+%h2 配送先の指定
 %p 配送先情報を入力してください
+
 = render 'form'
 
 %br
 
 .row
   .col-md-offset-2.col-md-8
-    = link_to orders_path do
+    = link_to carts_path do
       %button.btn.btn-warning.btn-lg.btn-block 戻る
