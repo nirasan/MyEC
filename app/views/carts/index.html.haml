@@ -26,7 +26,7 @@
     .col-md-offset-2.col-md-8
       = link_to new_order_path do
         %button.btn.btn-warning.btn-lg.btn-block 購入する
-- else
+- elsif guest_user?
   .text-center{style: "margin:10px; font-wait:400; font-size: 20px;"}
     ご注文手続きに進む
   .row
