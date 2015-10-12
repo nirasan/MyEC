@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
   def confirmed
     respond_to do |format|
       if @order.update(confirmed_flag: true)
-        format.html { redirect_to result_order_path(@order) }
+        format.html { redirect_to result_order_path(@order), notice: '購入が完了しました' }
       else
         format.html { render :confirm }
       end

@@ -1,4 +1,5 @@
-= render 'orders/items_and_prices', order: @order, items: @order.order_items
-= render 'orders/postal_data', order: @order
+%h2 購入履歴
 
-= link_to 'Back', orders_path
+= render 'orders/detail', order: @order
+
+= link_to '戻る', orders_path

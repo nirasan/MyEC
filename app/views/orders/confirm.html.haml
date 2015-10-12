@@ -2,57 +2,11 @@
 
 %p 購入してよろしいですか？
 
-.ec-order-detail
-  .row
-    .col-md-8
-      .row
-        .col-md-6
-          %h4 配送先
-          %div= @order.name
-          %div= "〒#{@order.zip_code}"
-          %div= @order.address
-          %div= "電話番号:#{@order.phone_number}"
-        .col-md-6
-          %h4 配送希望日時
-          %div= @order.delivery_date
-          %div= @order.delivery_timezone
-      %br
-      %br
-      %h4 購入商品
-      %table.table.table-hover
-        %thead
-          %th 商品名
-          %th 単価
-          %th 個数
-          %th 合計金額
-        %tbody
-          - @order.order_items.each do |item|
-            %tr
-              %td= item.item.name
-              %td= number_to_currency(item.item.price)
-              %td= "%d個" % item.amount
-              %td= number_to_currency(item.item.price * item.amount)
-    .col-md-4
-      %h4 注文内容
-      %table.table
-        %tr
-          %th.ec-order-detail__no_border 商品:
-          %td.pull-right.ec-order-detail__no_border= number_to_currency(@order.price)
-        %tr
-          %th.ec-order-detail__no_border 代引き手数料:
-          %td.pull-right.ec-order-detail__no_border= number_to_currency(@order.cash_on_delivery_price)
-        %tr
-          %th.ec-order-detail__no_border 配送料:
-          %td.pull-right.ec-order-detail__no_border= number_to_currency(@order.postage_price)
-        %tr
-          %th.ec-order-detail__no_border 消費税:
-          %td.pull-right.ec-order-detail__no_border= number_to_currency(@order.tax_price)
-        %tr
-          %th.ec-order-detail__no_border.ec-order-detail__total_price_label 注文合計:
-          %td.pull-right.ec-order-detail__no_border.ec-order-detail__total_price= number_to_currency(@order.total_price)
+= render 'orders/detail', order: @order
 
-      = form_tag(confirmed_order_path, method: :post) do
-        %button.btn.btn-primary.btn-lg.btn-block{type:"submit"} 購入する
-      %br
-      = link_to carts_path do
-        %button.btn.btn-warning.btn-lg.btn-block カートに戻る
+%br
+= form_tag(confirmed_order_path(@order), method: :post) do
+  %button.btn.btn-primary.btn-lg.btn-block{type:"submit"} 購入する
+%br
+= link_to carts_path do
+  %button.btn.btn-warning.btn-lg.btn-block カートに戻る
