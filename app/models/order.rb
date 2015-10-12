@@ -19,13 +19,13 @@ class Order < ActiveRecord::Base
   after_create :create_order_items
   after_update :confirmed
 
-  def self.new_by_user(user)
+  def self.new_by_user(user, last_postal_data)
     order = Order.new(
       user: user,
-      name: user.name,
-      address: user.address,
-      zip_code: user.zip_code,
-      phone_number: user.phone_number
+      name: user.name || last_postal_data.try(:fetch, :name.to_s, ''),
+      address: user.address || last_postal_data.try(:fetch, :address.to_s, ''),
+      zip_code: user.zip_code || last_postal_data.try(:fetch, :zip_code.to_s, ''),
+      phone_number: user.phone_number || last_postal_data.try(:fetch, :phone_number.to_s, '')
     )
     order.set_prices
     return order

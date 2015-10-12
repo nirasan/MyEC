@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @order = Order.new_by_user(current_user)
+    @order = Order.new_by_user(current_user, session[:last_postal_data])
   end
 
   def create
@@ -19,6 +19,12 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        session[:last_postal_data] = {
+          name: @order.name,
+          zip_code: @order.zip_code,
+          address: @order.address,
+          phone_number: @order.phone_number,
+        }
         format.html { redirect_to confirm_order_path(@order) }
       else
         format.html { render :new }
